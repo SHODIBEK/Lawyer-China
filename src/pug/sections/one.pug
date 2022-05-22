@@ -1,0 +1,27 @@
+- 
+  var lists =
+  [
+    {
+      icon: 'paifang',
+      title: 'У юристов нашей компании есть понимание и знание китайских традиций'
+    },
+    {
+      icon: 'warranty',
+      title: 'Мы с уверенностью готовы предоставить гарантию качества наших услуг'
+    },
+    {
+      icon: 'agreement',
+      title: 'Наша компания оказывает полный спектр юридических услуг - Китайскому бизнесу'
+    },
+  ]
+
+section.section-one.bg-pink
+  .container
+    .section-one__wrapper
+      .section-one__block.border
+        .section-one__items
+          each item in lists
+            .section-one__item
+              img(src=`${baseDir}images/icons/${item.icon}.png`, alt="").section-one__icon
+              ul.section-one__lists
+                li.section-one__list!=item.title

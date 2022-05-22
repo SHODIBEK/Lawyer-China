@@ -1,0 +1,111 @@
+.hero {
+	padding-top: 30px;
+	padding-bottom: 25px;
+	@include desktop {
+		padding-top: 106px;
+		padding-bottom: 75px;
+	}
+	&__wrapper {
+		position: relative;
+
+		@include mobile {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
+		@include desktop {
+			padding: 0 130px;
+		}
+	}
+
+	&__block {
+		text-align: center;
+		@include desktop {
+			width: 60%;
+			text-align: left;
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 6px;
+		font-size: 40px;
+		line-height: 39px;
+		@include desktop {
+			margin-bottom: 20px;
+			font-size: 70px;
+			line-height: 68px;
+		}
+	}
+
+	&__subtitle {
+		margin-top: 0;
+		margin-bottom: 2.6rem;
+		font-weight: 350;
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	&__btn {
+		@include mobile {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	&__image {
+		@include mobile {
+			width: 296px;
+			height: 259.82px;
+			margin: 0 auto;
+		}
+		@include desktop {
+			position: absolute;
+			top: 2px;
+			left: 47.7%;
+		}
+	}
+}
+
+.section-one {
+	padding-top: 25px;
+	padding-bottom: 44px;
+
+	@include desktop {
+		padding-top: 75px;
+		padding-bottom: 75px;
+	}
+	&__block {
+		padding: 42px 80px;
+    background-color: var(--secondary-color);
+	}
+
+	&__items {
+		display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 145px;
+	}
+
+	&__item {
+		position: relative;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 0;
+		left: 15px;
+	}
+
+	&__lists {
+		margin: 45px 0 28px;
+	}
+
+	&__list {
+		font-weight: 350;
+		font-size: 18px;
+		line-height: 24px;
+		color: #fff;
+	}
+}

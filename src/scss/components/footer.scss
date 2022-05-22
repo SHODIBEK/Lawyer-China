@@ -1,0 +1,125 @@
+.footer {
+	display: flex;
+	margin-top: auto;
+	padding: 40px 0;
+	width: 100%;
+	background-color: var(--secondary-color);
+
+	@include desktop {
+		padding: 70px 0;
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		@include desktop {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.footer__text {
+			text-align: center;
+
+			@include desktop {
+				display: none;
+			}
+		}
+	}
+
+	&__logo {
+		margin-bottom: 30px;
+		width: 167px;
+		height: 49px;
+
+		@include desktop {
+			margin-bottom: 0;
+		}
+	}
+
+	&__list {
+		margin: 80px 0;
+		width: 100%;
+		text-align: center;
+
+		@include desktop {
+			margin: 0;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	&__link {
+		padding: 10px 30px;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 21px;
+		color: $color-white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include desktop {
+			padding: 0;
+			font-size: 14px;
+			line-height: 19px;
+
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+
+		@include hover {
+			color: var(--red-color);
+		}
+
+		@include active {
+			color: var(--red-color);
+		}
+	}
+
+	&__bottom {
+		margin-top: 30px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		@include desktop {
+			flex-direction: row;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+
+		.footer__text {
+			display: none;
+
+			@include desktop {
+				display: block;
+			}
+		}
+	}
+
+	&__text,
+	&__copyright {
+		font-weight: 350;
+		font-size: 18px;
+		line-height: 24px;
+		color: #fff;
+	}
+
+	&__copyright {
+		@include mobile {
+			width: 200px;
+			margin: auto;
+			text-align: center;
+		}
+	}
+
+	&__language {
+		display: none;
+		@include desktop {
+			display: block;
+		}
+	}
+}

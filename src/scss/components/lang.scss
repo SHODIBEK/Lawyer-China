@@ -1,0 +1,28 @@
+.languages {
+  
+  &__item {
+    display: flex;
+    align-items: center;
+
+    @include hover {
+      .languages__text {
+        color: var(--red-color);
+      }
+    }
+  }
+  &__icon {
+    display: inline-block;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: $color-white;
+    transition: $duration-normal;
+  }
+}
