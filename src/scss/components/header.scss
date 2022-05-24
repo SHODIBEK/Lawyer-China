@@ -8,6 +8,11 @@
 	align-items: center;
 	padding: 15px 0 24px;
 	background-color: var(--secondary-color);
+	transition: $duration-normal;
+	&--fixed {
+		transform: translateY(-100%);
+		transition: $duration-normal;
+	}
 
 	&__wrapper {
 		display: flex;

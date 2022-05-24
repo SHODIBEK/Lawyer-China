@@ -37,7 +37,14 @@ main {
 }
 
 p {
-	margin: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
 }
 
 a,
@@ -81,6 +88,10 @@ img[draggable="false"] {
 	pointer-events: none;
 	// stylelint-disable-next-line
 	-webkit-user-drag: none;
+}
+
+.text-center {
+	text-align: center;
 }
 
 fieldset {
@@ -132,6 +143,28 @@ button {
 		line-height: 53px;
 	}
 
+	&-secondary {
+		line-height: 45px;
+	}
+
+	&-big {
+		line-height: 60px;
+	}
+
+	&-default {
+		font-weight: 300;
+		color: #000;
+		border: 2px solid rgba(0, 0, 0, 0.17);
+		background-color: #fff;
+	}
+
+	&.active {
+		font-weight: 300;
+		color: #fff;
+		border: 2px solid transparent;
+		background-color: var(--red-color);
+	}
+
 	@include hover {
 		color: var(--red-color);
 		border: 2px solid var(--red-color);
@@ -147,32 +180,77 @@ button {
 .chines-text {
 	margin-top: 0;
 	font-family: $font-secondary;
-	font-size: 70px;
-	line-height: 68px;
+	font-size: 40px;
+	line-height: 39px;
 	color: #000;
+
+	@include mobile {
+		text-align: center;
+	}
+
+	@include desktop {
+		font-size: 70px;
+		line-height: 68px;
+	}
 }
 
 .bg-pink {
 	background-color: rgba(255, 144, 104, 0.1);
 }
 
+.bg-darkPink {
+	background-color: #FFE1D6;
+}
+
+.form-bg {
+	padding: 30px 20px;
+	border: 1px solid rgba(157, 157, 157, 0.2);
+	background: rgba(157, 157, 157, 0.2);
+	backdrop-filter: blur(15px);
+
+	@include desktop {
+		padding: 30px 25px;
+	}
+}
+
 .js-lazy-load:not(.is-loaded) {
 	max-height: 50vh;
 }
 
-ul li {
-	position: relative;
-	padding-left: 23px;
+ul {
+	margin: 40px 0;
+	li {
+		position: relative;
+		padding-left: 23px;
+	
+		&:not(:last-child) {
+			margin-bottom: 20px;
+	
+			@include desktop {
+				margin-bottom: 30px;
+			}
+		}
+	
+		&::after {
+			content: "";
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: var(--red-color);
+		}
+	}
+}
 
-	&::after {
-		content: "";
-		position: absolute;
-		top: 8px;
-		left: 0;
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background-color: var(--red-color);
+.padding {
+	@include desktop {
+		padding: 0 130px;
+	}
+
+	@media (min-width: 768px) and (max-width: 1200px) {
+		padding: 0 10px;
 	}
 }
 
@@ -182,7 +260,7 @@ ul li {
 	margin: 0 auto;
 	padding: 0 10px;
 	width: 100%;
-	max-width: 100%;
+	max-width: 320px;
 
 	@include desktop {
 		max-width: 1242px;
@@ -202,6 +280,106 @@ ul li {
 	border-radius: 0 37px 0 37px;
 }
 
+.border-dashed {
+	padding: 25px;
+	border: 2px dashed #f9ddd2;
+	border-radius: 14px;
+
+	@include desktop {
+		padding: 50px;
+	}
+}
+
+.form-group {
+	position: relative;
+
+	&:not(:last-child) {
+		margin-bottom: 21px;
+	}
+
+	input[type="text"],
+	input[type="tel"] {
+		width: 100%;
+		height: 49px;
+		padding: 0 20px;
+		background: rgba(235, 235, 235, 0.15);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(14px);
+		border-radius: 43px;
+		font-size: 18px;
+		color: #fff;
+
+		&::placeholder {
+			color: #fff;
+		}
+
+		&:focus-visible {
+			outline: auto;
+		}
+	}
+	
+	input[type="radio"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+	}
+
+	&__btn {
+		.btn {
+			width: 100%;
+		}
+	}
+
+	&__block {
+		display: flex;
+		gap: 15px;
+	}
+}
+
+.form-label {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #000;
+	cursor: pointer;
+	&::before {
+		content:'';
+		-webkit-appearance: none;
+		background-color: transparent;
+		border: 2px solid var(--red-color);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+		padding: 10px;
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;
+		cursor: pointer;
+		margin-right: 5px;
+		border-radius: 50%;
+	}
+}
+
+.form-group input[type="radio"]:checked {
+
+	& + label:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 7px;
+    left: 9px;
+    width: 7px;
+    height: 13px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+		transform: rotate(45deg);
+	}
+
+	& + label::before {
+		background-color: var(--red-color);
+	}
+}
+
 /* stylelint-disable */
 /*
 * Немедленно переместите любую анимацию в конечную точку, если пользователь установил свое устройство в положение "prefers reduced motion".
@@ -218,3 +396,255 @@ ul li {
 	}
 }
 /* stylelint-enable */
+.table {
+	width: 100%;
+	white-space: nowrap;
+
+	@include mobile {
+		overflow: auto;
+	}
+
+	&__block {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	&__tbody {
+		overflow: hidden;
+		background: #FFF4F0;
+		border: 1px solid #F3DDD5;
+		border-radius: 6px;
+		width: max-content;
+	}
+
+	&__tr {
+    display: flex;
+	}
+
+	&__thead {
+		margin-bottom: 15px;
+		font-size: 16px;
+		line-height: 21px;
+	}
+
+	&__tbody {
+		.table__th,
+		.table__td {
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 24px;
+			color: #092629;
+		}
+
+		.table__tr {
+			&:not(:first-child) {
+				.table__td {
+					padding-top: 20px;
+					padding-bottom: 20px;
+					border-top: 1px solid rgba(49, 73, 75, 0.05);
+				}
+			}
+			&:last-child {
+				.table__td {
+					padding-bottom: 50px;
+				}
+			}
+		}
+
+		.table__td {
+			padding: 50px 42px 20px;
+			&:first-child,
+			&:last-child {
+				position: relative;
+				border: none!important;
+
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: -1px;
+					width: calc(100% - 42px);
+					height: 1px;
+					background-color: rgba(49, 73, 75, 0.05);
+					z-index: 2;
+				}
+			}
+
+			&:first-child {
+				&::after {
+					left: 42px;
+				}
+			}
+			&:nth-child(2) {
+				background: #FFEFEA;
+			}
+			&:nth-child(3) {
+				background: #FFE5DD;
+			}
+			&:last-child {
+				background: #FFD8CC;
+
+				&::after {
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&__th,
+	&__td {
+		&:first-child {
+			width: 522px;
+			flex: 0 0 522px;
+		}
+	
+		&:nth-child(2) {
+			width: 174px;
+			flex: 0 0 174px;
+		}
+	
+		&:nth-child(3) {
+			width: 112px;
+			flex: 0 0 112px;
+		}
+	
+		&:last-child {
+			width: 154px;
+			flex: 0 0 154px;
+		}
+	}
+
+	&__buttons {
+		margin-top: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 30px;
+
+		@include mobile {
+			width: 964px;
+		}
+	}
+}
+
+.hand-scroll {
+	margin: 0 auto 20px;
+	width: 117px;
+	height: 117px;
+	background-color: #FFF4F0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: swipe 2s infinite;
+
+	@include desktop {
+		display: none;
+	}
+}
+
+@keyframes swipe {
+	0% {
+		transform: translateX(-50%); 
+	}
+	50% {
+		transform: translateX(50%); 
+	}
+	to {
+		transform: translateX(-50%); 
+	} 
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	width: 302px;
+	background-color: #fff;
+	border: 1px solid #F3DDD5;
+	border-radius: 6px;
+	transform: translateX(-50%);
+	margin-top: 21.5px;
+	z-index: 2101;
+	&__close {
+		position: absolute;
+		top: -21.5px;
+		left: 0;
+		right: 0;
+		width: 43px;
+		height: 43px;
+		margin: 0 auto;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid #F3DDD5;
+		cursor: pointer;
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 20.08px;
+			height: 2px;
+			margin: auto;
+			background-color: #55372C;
+		}
+
+		&::after {
+			transform: rotate(45deg);
+		}
+
+		&::before {
+			transform: rotate(-45deg);
+		}
+	}
+
+	&__body {
+		padding: 60px 15px 40px;
+		overflow: auto;
+    height: calc(100vh - 40px);
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 2100;
+	backdrop-filter: blur(14px);
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.swiper {
+	&-button {
+		&-prev,
+		&-next {
+			width: 66px;
+			height: 66px;
+			border-radius: 50%;
+			background-color: var(--red-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: $duration-normal;
+			
+			svg {
+				width: 24px;
+				height: 24px;
+			}
+
+			@include hover {
+				box-shadow: 0px 6px 7px rgba(226, 41, 41, 0.4);
+			}
+		}
+	}
+}

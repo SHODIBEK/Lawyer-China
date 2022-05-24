@@ -1,0 +1,37 @@
+-
+  var tabLink = [
+    "Налоговые споры",
+    "Реструктуризация бизнеса",
+    "Сопровождение налоговых проверок",
+    "Банкротство",
+    "Антикризисное управление",
+    "Возмещение НДС",
+    "Проведение due diligence",
+    "Взыскание задолженности"
+  ]
+
+section.section-seven.bg-pink#services
+  .container
+    .section-seven__wrapper.padding
+      h2.section-seven__title.chines-text
+        | Услуги и Сферы деятельности
+      .section-seven__links.tab-content
+        .section-seven__tabs
+          each item, index in tabLink
+            a(href="javascript:void(0);" data-id!=(index+1) class=index == 0 ? 'active' : '').section-seven__tab.tab-btn!=item
+        .section-seven__content
+          - for(var i = 0; i < 8; i++) {
+            .section-seven__block(class=i == 0 ? 'active' : '', data-tab!=(i+1))
+              p
+                strong Юристы САЙТ ИМЯ проконсультируют представителей из КНР по всем вопросам налогообложения.
+              p Мы поможем:
+              p выбрать систему налогообложения
+              p получить налоговый вычет
+              p пройти налоговую проверку
+              p проверить законность начислений
+              p оспорить действия налоговой инспекции в суде
+              i Также юристы Академии осуществляют представительство в суде по налоговым спорам.
+              .section-seven__btn
+                button(type="button").btn.btn-secondary
+                  | Получить консультацию
+          - }

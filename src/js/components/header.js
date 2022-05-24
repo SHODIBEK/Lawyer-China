@@ -70,9 +70,33 @@ function destroy() {
 	helpers.$document.off('.header');
 }
 
+function scrollHeader() {
+	// Hide Header on on scroll down
+	var lastScrollTop = 0;
+	var delta = 15;
+	var navbarHeight = $('header').outerHeight();
+
+	$(window).on('scroll', function(event){
+		var st = $(this).scrollTop();
+		if(Math.abs(lastScrollTop - st) <= delta)
+				return;
+
+		if (st > lastScrollTop && st > navbarHeight){
+			// Scroll Down
+			$('header').addClass('header--fixed');
+		} else {
+			// Scroll Up
+			$('header').removeClass('header--fixed');
+		}
+		
+		lastScrollTop = st;
+	});
+}
+
 export default {
 	init,
 	destroy,
 	openMenu,
 	closeMenu,
+	scrollHeader
 };

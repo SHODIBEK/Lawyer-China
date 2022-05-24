@@ -1,0 +1,31 @@
+.table.tab-content
+  - for(var a = 0; a < 3; a++) {
+    .table__block(class=a === 0 ? "active" : "", data-tab!=(a+1))
+      .table__thead
+        .table__tr
+          .table__th
+          .table__th.text-center
+            | Самый дешёвый
+          .table__th.text-center
+            | Средний
+          .table__th.text-center
+            | Всё включено
+      .table__tbody
+        - for (var i = 0; i < 6; i++) {
+          .table__tr
+            .table__td
+              | Пункт
+            .table__td.text-center -
+            .table__td.text-center +
+            .table__td.text-center +
+        - }
+  - }
+  .table__buttons
+    - for(var i = 0; i < 3; i++) {
+      if (i == 0)
+        button(type="button" data-id!=(i+1)).tab-btn.btn.btn-secondary.btn-default.active
+          | Выбрать
+      else
+        button(type="button" data-id!=(i+1)).tab-btn.btn.btn-secondary.btn-default
+          | Выбрать
+    - }

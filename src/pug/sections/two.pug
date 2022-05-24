@@ -1,0 +1,27 @@
+-
+  var lists = [
+    'Как открыть бизнес в России?', 
+    'Как китайский бизнес интегрировать в Российсую экономику?', 
+    'Как зарегистрировать ООО в РФ?', 
+    'Как открыть банковский счет в РФ?'
+  ]
+
+section.section-two.bg-pink
+  .container
+    .section-two__wrapper.padding
+      .section-two__left
+        h2.section-two__title.chines-text
+          | Хотите узнать ответы на вопросы:
+        .section-two__block
+          ul.section-two__lists
+            each item in lists
+              li.section-two__list!=item
+          p
+            | Мы знаем ответы на эти и все другие вопросы юридического характера.
+          p
+            | Позвоните нам и получите бесплатную консультацию.
+          +svg('arrow').section-two__icon
+      .section-two__right
+        span.section-two__circle
+        img(src="./images/icons/man.png", alt="man")
+        +form('', 'Записаться')(class="section-two__form form-bg")
