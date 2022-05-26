@@ -316,6 +316,10 @@ ul {
 		&:focus-visible {
 			outline: auto;
 		}
+
+		&.error {
+			border-color: var(--red-color);
+		}
 	}
 	
 	input[type="radio"] {
@@ -335,6 +339,14 @@ ul {
 	&__block {
 		display: flex;
 		gap: 15px;
+	}
+
+	label.error {
+		position: absolute;
+    left: 0px;
+    bottom: -18px;
+    font-size: 12px;
+    color: var(--red-color);
 	}
 }
 
@@ -558,14 +570,15 @@ ul {
 }
 
 .modal {
+	display: none;
 	position: fixed;
-	top: 0;
+	top: 50%;
 	left: 50%;
 	width: 302px;
 	background-color: #fff;
 	border: 1px solid #F3DDD5;
 	border-radius: 6px;
-	transform: translateX(-50%);
+	transform: translate(-50%, -50%);
 	margin-top: 21.5px;
 	z-index: 2101;
 	&__close {
@@ -607,7 +620,46 @@ ul {
 	&__body {
 		padding: 60px 15px 40px;
 		overflow: auto;
-    height: calc(100vh - 40px);
+    height: 100%;
+	}
+
+	&__title,
+	&__subtitle {
+		margin-bottom: 35px;
+		font-family: $font-secondary;
+    font-size: 36px;
+    line-height: 33px;
+		text-align: center;
+	}
+
+	&__form {
+		padding: 37px 11px;
+		background: rgba(255, 255, 255, 0.2);
+		border: 1px solid #F3DDD5;
+		border-radius: 31px;
+	}
+
+	.form-group input[type="text"], 
+	.form-group input[type="tel"] {
+		color: #000;
+		background: #FFF4F0;
+		border: 1px solid #F3DDD5;
+		border-radius: 43px;
+
+		&::placeholder {
+			color: #000;
+		}
+	}
+
+	&__subtitle {
+		margin-top: -51px;
+    margin-bottom: 0;
+		padding: 10px 4px;
+		font-size: 40px;
+    line-height: 39px;
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(26px);
+		border-radius: 19px;
 	}
 }
 

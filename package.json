@@ -71,6 +71,7 @@
 		"husky": "7.0.1",
 		"imask": "6.4.2",
 		"jquery": "3.6.0",
+		"jquery-validation": "1.19.4",
 		"lozad": "1.16.0",
 		"ninelines-sharing": "1.5.8",
 		"ninelines-ua-parser": "1.1.6",

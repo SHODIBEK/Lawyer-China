@@ -1,5 +1,7 @@
 import './vendor';
 import './helpers';
+import Swiper, { Navigation } from 'swiper';
+// import IMask from 'imask';
 // import './components/social';
 import {ieFix} from './vendor/ie-fix';
 import {vhFix} from './vendor/vh-fix';
@@ -9,9 +11,7 @@ import header from './components/header';
 import scrollToAnchor from './modules/scrollToAnchor';
 import './components/tabs';
 import './components/collapse';
-import Swiper, { Navigation } from 'swiper';
-import IMask from 'imask';
-
+import './components/popup';
 
 ieFix();
 vhFix();
@@ -30,16 +30,4 @@ const swiper = new Swiper('.swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   }
-});
-
-/// IMASK INIT
-var items = document.getElementsByClassName('phone-mask');
-
-Array.prototype.forEach.call(items, function(element) {
-  var phoneMask = new IMask(element, {
-    mask: '+{7}(000)000-00-00',
-    placeholder: {
-      show: 'always'
-    }
-  });
 });

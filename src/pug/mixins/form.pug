@@ -4,10 +4,10 @@ mixin form(id, text, data)
     if (data)
       .form-group__block
         .form-group
-          input#private(type="radio", name="private")
+          input#private(type="radio", name="private", value="Частная")
           label(for="private").form-label Частная
         .form-group
-          input#commercial(type="radio", name="private" checked)
+          input#commercial(type="radio", name="private", value="Коммерческая" checked)
           label(for="commercial").form-label Коммерческая
     .form-group
       input(type="text", name="name", placeholder="Ваше имя")
