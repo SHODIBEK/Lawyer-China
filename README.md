@@ -21,4 +21,4 @@ To deploy this project run
 
 ## 🖼️ **SCREENSHOTS**
 
-![App Screenshot](https://i.ibb.co/Bq7Vdkr/Lawyer-China.jpg)
+[![App Screenshot](https://i.ibb.co/Bq7Vdkr/Lawyer-China.jpg)](https://i.ibb.co/Bq7Vdkr/Lawyer-China.jpg)
